@@ -3,11 +3,15 @@
     grid-template-areas: 
     "header header header header"
     "display display display history"
-    "days days days .";
+    "days days days history";
     width: 80%;
     grid-gap: 5px;
     margin-left: auto;
     margin-right: auto;
+    z-index: 5;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    grid-area: main;
 }
 
 #header {
@@ -15,31 +19,49 @@
     display: grid;
     grid-template-areas: 
     "h1"
+    "error"
     "search";
-    background-color: cadetblue;
-    border: 2px solid black;
+    background-color:rgba(255,255,255,0.4);; 
+    border: 5px solid skyblue; 
     text-align: center;
+    border-radius: 10px;
 }
 
 #header h1 {
     grid-area: h1;
 }
 
+#error {
+    grid-area: error;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
 #weather-search {
     grid-area: search;
+    margin-bottom: 15px;
 }
 
 #display-content {
     grid-area: display;
-    background-color: lightgrey;
-    border: 1px solid cadetblue;
+    background-color: rgba(255,255,255,0.4); 
+    border: 5px solid skyblue; 
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
 }
 
 #history-content {
     grid-area: history;
+    border: 5px solid skyblue; 
+    border-radius: 10px; 
+    background-color: rgba(255,255,255,0.4); 
+}
+
+a {
+    font-weight: 600;
 }
 
 #three-days {
@@ -47,6 +69,12 @@
     display: grid;
     grid-template-areas: 
     'today tomorrow after-tomorrow';
+    border-radius: 10px; 
+    background-color: rgba(255,255,255,0.4); 
+}
+
+#today, #tomorrow, #after-tomorrow {
+    margin: 15px; 
 }
 
 #today {
@@ -57,9 +85,165 @@
 #tomorrow {
     grid-area: tomorrow;
     text-align: center;
+    border-right: 5px solid skyblue;
+    border-left: 5px solid skyblue;
 }
 
 #after-tomorrow {
     grid-area: after-tomorrow;
     text-align: center;
+}
+
+@keyframes move-background {
+    from {
+          -webkit-transform: translate3d(0px, 0px, 0px);
+      }
+      to { 
+          -webkit-transform: translate3d(1000px, 0px, 0px);
+      }
+  }
+
+@-webkit-keyframes move-background {
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
+}
+
+.dark-clouds {
+    width:10000px;
+    height: 100%;
+    background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+    background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+
+    -moz-animation:move-background 150s linear infinite;
+    -ms-animation:move-background 150s linear infinite;
+    -o-animation:move-background 150s linear infinite;
+    -webkit-animation:move-background 150s linear infinite;
+    animation:move-background 150s linear infinite;
+}
+
+#rain {
+    width:10000px;
+    height: 100%;
+    background: transparent url("https://i.gifer.com/2ii5.gif") repeat;
+    background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+
+    -moz-animation:move-background 150s linear infinite;
+    -ms-animation:move-background 150s linear infinite;
+    -o-animation:move-background 150s linear infinite;
+    -webkit-animation:move-background 150s linear infinite;
+    animation:move-background 150s linear infinite;
+}
+
+#cloudy {
+    width:10000px;
+    height: 100%;
+    background: transparent url("https://c.tenor.com/YhQV3T7bjXwAAAAC/heaven-cloud.gif");
+    background-size: 2000px 2000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+}
+
+#sunny {
+    width:10000px;
+    height: 100%;
+    background: transparent url("https://64.media.tumblr.com/22314b41aac207dc747922c2ffa775d9/tumblr_inline_oubzzjMUgT1sltmlu_500.gifv");
+    background-size: 2000px 2000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+}
+
+#snow {
+    width:10000px;
+    height: 100%;
+    background: transparent url("https://i.gifer.com/origin/d2/d2faff75e02534a3c687da2b7c4a95ab.gif") repeat;
+    background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+
+    -moz-animation:move-background 150s linear infinite;
+    -ms-animation:move-background 150s linear infinite;
+    -o-animation:move-background 150s linear infinite;
+    -webkit-animation:move-background 150s linear infinite;
+    animation:move-background 150s linear infinite;
+}
+
+#nav-bar {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 5;
+    text-align: center;
+    justify-content: center;
+}
+
+#logo {
+    background-color: skyblue;
+    opacity: 0.8;
+    border: 1px solid skyblue;
+    border-radius: 10px;
+    width: 235px;
+    grid-area: logo;
+    z-index: 5;
+    margin: auto;
+    position: relative;
+}
+
+#navbar-container {
+    grid-area: navbar;
+    z-index: 5;
+    display: grid;
+    grid-template-areas: 
+    "item-1 item-2 item-3 item-4";
+    z-index: 5;
+    padding: 0px;
+}
+
+#navbar-container li {
+    display: inline;
+    z-index: 5;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 5px solid skyblue;
+    border-radius: 5px;
+    font-weight: bold;;
+}
+
+#nav-item-1 {
+    grid-area: item-1;
+}
+
+#nav-item-2 {
+    grid-area: item-2;
+}
+
+#nav-item-3 {
+    grid-area: item-3;
+}
+
+#nav-item-4 {
+    grid-area: item-4;
 }
