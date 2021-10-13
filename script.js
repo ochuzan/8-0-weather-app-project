@@ -14,7 +14,7 @@ function fetchWeatherByCity (cityName) {
             <div><strong>Currently:</strong> Feels Like ${data.current_condition[0].FeelsLikeF} &deg;F</div>
             <div><strong>${data.current_condition[0].weatherDesc[0].value}</strong></div>` // <------ADDED THIS LINE
 
-            // UPDATE EVERYTHING BELOW THIS LINE ------------------------------
+            // Background change ------------------------------
             let weatherDiv = document.querySelector('#weather-condition div');
             let secondWeatherDiv = document.querySelector('#second-div');
 
@@ -32,6 +32,7 @@ function fetchWeatherByCity (cityName) {
             }
             // --------------------------------------
 
+            // Three day forecast
             let threeDay = document.querySelector('#three-days');
             threeDay.innerHTML = 
             `<div id="today">
