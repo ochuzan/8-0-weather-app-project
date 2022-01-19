@@ -1,6 +1,6 @@
 # Weather App Project
 
-For this assignment, you will build a weather application that will make use of the [wttr.in API](https://github.com/chubin/wttr.in) to show the weather in different locations. Your application will also store previous searches.
+For this project, I built a weather application with co-fellow Mukayila Alao that will make use of the [wttr.in API](https://github.com/chubin/wttr.in) to show the weather in different locations. This application also stores previous searches. After searching up a location, the background of the site will change to an animation that corresponds with the current searched location. There are validations in place when an invalid city is entered into the search box.
 
 ## Project setup
 
